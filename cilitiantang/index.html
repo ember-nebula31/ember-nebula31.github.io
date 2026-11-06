@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>磁力天堂-磁力搜索资源索引_磁力链接使用与资源分类</title>
+<meta name="description" content="磁力天堂是磁力链接搜索与资源索引的主题首页，说明磁力搜索的常见用法、资源分类方式、链接复制与下载工具配合要点，并给出便捷的入口导航。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Cpath d='M20 16h10a14 14 0 0 1 0 28H20z' fill='none' stroke='%2338bdf8' stroke-width='5'/%3E%3Cpath d='M44 20v24M38 26h12M38 38h12' stroke='%23a3e635' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0b1220;
+    --panel:#111c31;
+    --panel-2:#16243d;
+    --line:#22334f;
+    --text:#e7eef8;
+    --muted:#9db0c9;
+    --cyan:#38bdf8;
+    --lime:#a3e635;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1100px 500px at 85% -10%, rgba(56,189,248,.16), transparent 60%),
+      radial-gradient(800px 420px at 0% 0%, rgba(163,230,53,.08), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px;}
+  /* header */
+  header.site{
+    position:sticky;top:0;z-index:20;
+    background:rgba(11,18,32,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .head{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:14px 0;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:.5px;}
+  .brand svg{width:34px;height:34px;flex:none;}
+  .brand span{background:linear-gradient(90deg,#fff,#bfe4ff);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  nav.links{display:flex;gap:6px;flex-wrap:wrap;}
+  nav.links a{
+    padding:7px 13px;border-radius:999px;font-size:14px;color:var(--muted);
+    border:1px solid transparent;transition:.2s;
+  }
+  nav.links a:hover{color:var(--text);border-color:var(--line);background:var(--panel);}
+  /* hero */
+  .hero{padding:52px 0 40px;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;}
+  h1{
+    font-size:clamp(30px,4.6vw,46px);
+    line-height:1.25;margin:0 0 16px;font-weight:800;letter-spacing:1px;
+  }
+  h1 em{
+    font-style:normal;
+    background:linear-gradient(90deg,var(--cyan),var(--lime));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lede{color:var(--muted);font-size:16px;margin:0 0 26px;max-width:38em;}
+  .searchbar{
+    display:flex;gap:8px;background:var(--panel);border:1px solid var(--line);
+    border-radius:14px;padding:8px;max-width:520px;
+  }
+  .searchbar input{
+    flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--text);
+    font-size:15px;padding:9px 12px;font-family:inherit;
+  }
+  .searchbar input::placeholder{color:#6d819c;}
+  .searchbar button{
+    border:0;cursor:pointer;font-family:inherit;font-size:15px;font-weight:700;
+    padding:10px 20px;border-radius:10px;color:#06121f;
+    background:linear-gradient(135deg,var(--cyan),var(--lime));
+  }
+  .searchbar button:hover{filter:brightness(1.08);}
+  .hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;}
+  .hero-tags button{
+    font-family:inherit;cursor:pointer;font-size:13px;color:var(--muted);
+    background:transparent;border:1px solid var(--line);border-radius:999px;padding:5px 12px;
+  }
+  .hero-tags button:hover{color:var(--text);border-color:#33507a;}
+  .hero-card{
+    background:linear-gradient(160deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line);border-radius:22px;padding:24px;
+  }
+  .hero-card h2{margin:0 0 6px;font-size:15px;color:var(--cyan);letter-spacing:1px;}
+  .hero-card p{margin:0 0 18px;color:var(--muted);font-size:14px;}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center;}
+  .stat{background:#0d1729;border:1px solid var(--line);border-radius:12px;padding:12px 6px;}
+  .stat b{display:block;font-size:18px;color:var(--lime);}
+  .stat small{color:var(--muted);font-size:12px;}
+  /* sections */
+  section{padding:34px 0;}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
+  .sec-head h2{font-size:22px;margin:0;font-weight:800;}
+  .sec-head .dot{width:8px;height:8px;border-radius:50%;background:var(--lime);display:inline-block;}
+  .sec-head p{margin:0;color:var(--muted);font-size:14px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;transition:.2s;
+  }
+  .card:hover{border-color:#33507a;transform:translateY(-2px);}
+  .card h3{margin:12px 0 8px;font-size:17px;}
+  .card p{margin:0;color:var(--muted);font-size:14.5px;}
+  .ico{
+    width:40px;height:40px;border-radius:11px;display:grid;place-items:center;
+    background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);
+  }
+  .ico svg{width:22px;height:22px;}
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s;}
+  .step{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;position:relative;
+  }
+  .step::before{
+    counter-increment:s;content:counter(s,decimal-leading-zero);
+    font-size:13px;font-weight:800;color:var(--lime);letter-spacing:1px;
+  }
+  .step h3{margin:8px 0 8px;font-size:16px;}
+  .step p{margin:0;color:var(--muted);font-size:14px;}
+  /* split */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;}
+  .body-text p{color:#c3d2e5;margin:0 0 14px;font-size:15.5px;}
+  .body-text strong{color:#fff;}
+  .list{list-style:none;padding:0;margin:0;}
+  .list li{
+    display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:14.5px;color:#c3d2e5;
+  }
+  .list li:last-child{border-bottom:0;}
+  .list li b{color:var(--cyan);font-weight:600;flex:none;}
+  .note{
+    background:linear-gradient(150deg,rgba(163,230,53,.09),rgba(56,189,248,.07));
+    border:1px solid #2b4460;border-radius:var(--radius);padding:22px;margin-top:18px;
+  }
+  .note h3{margin:0 0 8px;font-size:16px;color:var(--lime);}
+  .note p{margin:0;color:#c3d2e5;font-size:14.5px;}
+  /* faq */
+  .faq{display:grid;gap:12px;}
+  details{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+  }
+  details[open]{border-color:#33507a;}
+  summary{cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  summary::before{content:"+";color:var(--lime);margin-right:10px;font-weight:800;}
+  details[open] summary::before{content:"−";}
+  details p{margin:12px 0 0;color:var(--muted);font-size:14.5px;}
+  /* cta */
+  .cta{
+    background:linear-gradient(135deg,#132843,#0e1a2d);
+    border:1px solid #2b4460;border-radius:22px;padding:32px;
+    display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+  }
+  .cta h2{margin:0 0 8px;font-size:22px;}
+  .cta p{margin:0;color:var(--muted);font-size:14.5px;max-width:40em;}
+  .btn-dl{
+    display:inline-block;padding:13px 30px;border-radius:12px;font-weight:800;font-size:15px;
+    color:#06121f;background:linear-gradient(135deg,var(--cyan),var(--lime));
+    pointer-events:none;
+  }
+  footer.site{
+    border-top:1px solid var(--line);margin-top:30px;padding:28px 0;color:var(--muted);font-size:13.5px;
+  }
+  .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;}
+  .foot nav{display:flex;gap:16px;flex-wrap:wrap;}
+  .foot a:hover{color:var(--text);}
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:26px;}
+    .grid-3{grid-template-columns:1fr 1fr;}
+    .steps{grid-template-columns:1fr 1fr;}
+    .split{grid-template-columns:1fr;gap:20px;}
+  }
+  @media (max-width:600px){
+    .hero{padding:34px 0 26px;}
+    .grid-3,.steps{grid-template-columns:1fr;}
+    section{padding:26px 0;}
+    .head{padding:12px 0;}
+    nav.links a{padding:6px 10px;font-size:13px;}
+    .cta{padding:24px;}
+    .stat b{font-size:16px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap head">
+    <a class="brand" href="#top" aria-label="磁力天堂首页">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#0f172a"/>
+        <path d="M20 16h10a14 14 0 0 1 0 28H20z" fill="none" stroke="#38bdf8" stroke-width="5"/>
+        <path d="M44 20v24M38 26h12M38 38h12" stroke="#a3e635" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <span>磁力天堂</span>
+    </a>
+    <nav class="links" aria-label="主导航">
+      <a href="#start">搜索入门</a>
+      <a href="#flow">使用流程</a>
+      <a href="#cat">资源分类</a>
+      <a href="#faq">常见问题</a>
+      <a href="#tool">工具入口</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <h1><em>磁力天堂</em></h1>
+        <p class="lede">磁力天堂围绕磁力链接搜索与资源索引展开：输入关键词找到磁力链接，复制后交给下载工具即可开始获取。页面整理了搜索、复制、分类与常见问题的完整路径，方便第一次使用的人快速上手。</p>
+        <form class="searchbar" id="searchForm" role="search" onsubmit="return false;">
+          <input id="q" type="search" placeholder="输入磁力关键词，如：纪录片、学习资料、公开课" aria-label="搜索磁力资源关键词">
+          <button type="submit" id="goBtn">搜索</button>
+        </form>
+        <div class="hero-tags" aria-label="热门搜索词">
+          <button type="button" data-kw="公开课">公开课</button>
+          <button type="button" data-kw="纪录片">纪录片</button>
+          <button type="button" data-kw="学习资料">学习资料</button>
+          <button type="button" data-kw="电子书">电子书</button>
+          <button type="button" data-kw="软件镜像">软件镜像</button>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="磁力天堂使用概览">
+        <h2>使用概览</h2>
+        <p>磁力天堂把磁力链接的获取过程拆成清晰的三步，不需要注册即可了解入口位置。</p>
+        <div class="stat-row">
+          <div class="stat"><b>3</b><small>操作步骤</small></div>
+          <div class="stat"><b>6</b><small>资源大类</small></div>
+          <div class="stat"><b>1</b><small>链接格式</small></div>
+        </div>
+        <div class="note" style="margin-top:18px;">
+          <h3>先看这里</h3>
+          <p>磁力链接通常以 magnet:?xt=urn:btih: 开头，长度较长，复制时注意不要截断末尾字符。</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <section id="start">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="dot"></span>
+        <h2>磁力搜索入门</h2>
+        <p>先理解磁力链接是什么，再谈怎么用</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"><circle cx="10" cy="10" r="6"/><path d="M15 15l5 5"/></svg>
+          </div>
+          <h3>关键词搜索</h3>
+          <p>在磁力天堂的搜索框输入资源名称或主题词，结果以磁力链接条目呈现，可按大小与收录时间粗看排序。关键词越具体，命中越准。</p>
+        </article>
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a3e635" stroke-width="2" stroke-linecap="round"><path d="M9 15l6-6"/><circle cx="7" cy="17" r="3"/><circle cx="17" cy="7" r="3"/></svg>
+          </div>
+          <h3>磁力链接是什么</h3>
+          <p>磁力链接是一种只包含哈希值的资源定位串，不依赖中心服务器存放文件本身，因此磁力天堂展示的是链接索引，而非文件托管。</p>
+        </article>
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
+          </div>
+          <h3>复制与保存</h3>
+          <p>点击条目中的磁力链接按钮即可复制完整串。建议粘贴到记事本核对首尾，再交给支持磁力的下载工具添加任务。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="flow">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="dot"></span>
+        <h2>使用流程</h2>
+        <p>从搜索到开始下载，四步完成</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>确定关键词</h3>
+          <p>用资源全名或核心词组合检索，避免只输入单个宽泛字词。</p>
+        </div>
+        <div class="step">
+          <h3>挑选条目</h3>
+          <p>对照文件大小、文件数量与名称，排除明显不符的结果。</p>
+        </div>
+        <div class="step">
+          <h3>复制链接</h3>
+          <p>复制磁力天堂给出的完整磁力链接，确认以 magnet:? 开头。</p>
+        </div>
+        <div class="step">
+          <h3>添加任务</h3>
+          <p>在下载工具的“添加链接”中输入，等待解析文件列表后开始。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cat">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="dot"></span>
+        <h2>资源分类与检索方向</h2>
+        <p>磁力天堂常见索引类型一览</p>
+      </div>
+      <div class="split">
+        <div class="body-text">
+          <p><strong>磁力天堂</strong>的访问者多数带着明确目标而来：找一部片子、找一套课程，或者找一份已经找不到直链的安装包。因此资源分类决定了检索效率，也决定了搜索结果的可读性。</p>
+          <p>常见做法是按用途先分大类，再用关键词缩小范围。例如影视类关注清晰度与字幕语言，学习资料类关注版本年份与格式，软件镜像类关注系统位数与发行版本。分类清楚之后，磁力天堂的关键词搜索就更容易命中。</p>
+          <p>需要提醒的是，磁力链接只描述资源标识，不保证资源仍有人做种。面对较早的条目，先看结果中的活跃程度提示，再决定是否投入时间下载。</p>
+        </div>
+        <div>
+          <ul class="list">
+            <li><b>影视</b><span>按片名、年份、分辨率检索，注意字幕与音轨标注。</span></li>
+            <li><b>音乐</b><span>专辑名配合格式关键词，无损与压缩格式需分别确认。</span></li>
+            <li><b>学习资料</b><span>课程名加机构或年份，优先选择文件结构完整的条目。</span></li>
+            <li><b>电子书</b><span>书名加格式，如 PDF、EPUB，注意页数与版本。</span></li>
+            <li><b>软件镜像</b><span>软件名加版本号与系统平台，核对文件大小是否合理。</span></li>
+            <li><b>公开资料</b><span>标准文档、数据集与公开课，关注发布方与更新日期。</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="dot"></span>
+        <h2>常见问题</h2>
+        <p>磁力天堂使用中最常遇到的几类疑问</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>磁力天堂能直接打开文件吗？</summary>
+          <p>不能。磁力天堂提供的是磁力链接索引与搜索入口，实际解析和下载需要由支持磁力协议的客户端完成。复制链接后到下载工具中添加任务即可。</p>
+        </details>
+        <details>
+          <summary>为什么有的磁力链接添加后没有速度？</summary>
+          <p>磁力链接依赖其他用户共享数据。如果该资源做种人数很少，解析文件列表和下载都会被拖慢。可以换一个文件结构相近的条目再试。</p>
+        </details>
+        <details>
+          <summary>搜索结果名称与实际内容不一致怎么办？</summary>
+          <p>先看文件列表再决定是否下载。名称只是发布者填写的描述，文件列表能反映真实构成。发现明显不符时直接跳过，不必继续。</p>
+        </details>
+        <details>
+          <summary>使用磁力天堂需要注意什么？</summary>
+          <p>只检索与获取自己有权使用的内容，遵守所在地法律法规与平台规则。对来源不明的可执行文件保持警惕，下载后先做安全扫描。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="tool">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <h2>把磁力天堂加入常用入口</h2>
+          <p>页面提供磁力链接搜索、分类浏览与常见问题说明。若需要离线保存使用说明，可下载整理好的入口清单，内容涵盖搜索步骤、链接格式核对与分类关键词。</p>
+        </div>
+        <a class="btn-dl" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap foot">
+    <div>磁力天堂 · 磁力链接搜索与资源索引主题首页</div>
+    <nav aria-label="页尾导航">
+      <a href="#start">搜索入门</a>
+      <a href="#flow">使用流程</a>
+      <a href="#cat">资源分类</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form = document.getElementById('searchForm');
+  var input = document.getElementById('q');
+  var go = document.getElementById('goBtn');
+  function run(){
+    var kw = (input.value || '').trim();
+    if(!kw){ input.focus(); return; }
+    // 页面内静态检索：在资源分类与常见问题中定位匹配项
+    var nodes = document.querySelectorAll('#cat li, #cat p, #faq summary, #faq p');
+    var first = null;
+    nodes.forEach(function(n){ n.style.outline=''; });
+    nodes.forEach(function(n){
+      if(!first && n.textContent.indexOf(kw) !== -1){
+        first = n;
+      }
+    });
+    if(first){
+      first.style.outline = '2px solid #a3e635';
+      first.style.outlineOffset = '4px';
+      first.scrollIntoView({behavior:'smooth', block:'center'});
+      go.textContent = '已定位';
+      setTimeout(function(){ go.textContent = '搜索'; }, 1600);
+    } else {
+      go.textContent = '未匹配';
+      setTimeout(function(){ go.textContent = '搜索'; }, 1400);
+      document.getElementById('cat').scrollIntoView({behavior:'smooth'});
+    }
+  }
+  form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
+  go.addEventListener('click', function(e){ e.preventDefault(); run(); });
+  document.querySelectorAll('.hero-tags button').forEach(function(b){
+    b.addEventListener('click', function(){
+      input.value = b.getAttribute('data-kw');
+      run();
+    });
+  });
+})();
+</script>
+</body>
+</html>

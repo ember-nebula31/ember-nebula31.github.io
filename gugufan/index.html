@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>咕咕番-咕咕番在线观看_咕咕番动漫番剧入口</title>
+<meta name="description" content="咕咕番是面向动漫爱好者的番剧浏览入口，汇集新番速览、连载更新提示、分类检索与追番清单，帮助你快速找到想看的咕咕番动漫内容。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314182b'/%3E%3Ccircle cx='24' cy='24' r='7' fill='%23ffd166'/%3E%3Cpath d='M40 18a10 10 0 0 1 0 20' stroke='%235ad1c8' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M14 44h36' stroke='%23ff8fab' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#161a2e;
+  --ink-soft:#3d4460;
+  --muted:#6b7290;
+  --line:#e3e6f0;
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --brand:#2f3a8f;
+  --brand-2:#5a63c9;
+  --accent:#ffb703;
+  --accent-2:#ff8fab;
+  --teal:#2bb3a3;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(22,26,46,.08);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{display:block;max-width:100%;}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px;}
+
+/* Header */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(246,247,251,.9);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:12px 0;flex-wrap:wrap;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:.5px;color:var(--brand);}
+.logo .mark{
+  width:38px;height:38px;border-radius:11px;
+  background:linear-gradient(140deg,#2f3a8f,#5a63c9);
+  display:grid;place-items:center;flex:0 0 auto;
+  box-shadow:0 6px 16px rgba(47,58,143,.28);
+}
+.logo .mark svg{width:22px;height:22px;}
+nav.main-nav{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+nav.main-nav a{
+  font-size:14.5px;color:var(--ink-soft);padding:7px 12px;border-radius:9px;
+  transition:background .18s,color .18s;
+}
+nav.main-nav a:hover{background:#e9ebf6;color:var(--brand);}
+nav.main-nav a.nav-cta{
+  background:var(--brand);color:#fff;font-weight:600;
+  box-shadow:0 6px 16px rgba(47,58,143,.25);
+}
+nav.main-nav a.nav-cta:hover{background:#26307a;color:#fff;}
+
+/* Hero */
+.hero{
+  position:relative;
+  padding:54px 0 40px;
+  background:
+    radial-gradient(900px 380px at 88% -10%, rgba(255,183,3,.18), transparent 62%),
+    radial-gradient(700px 340px at 4% 10%, rgba(90,99,201,.16), transparent 60%);
+  overflow:hidden;
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;letter-spacing:1.5px;
+  color:var(--brand);background:#eaecf9;border:1px solid #d8dcf3;
+  padding:5px 13px;border-radius:999px;margin:0 0 16px;
+}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);}
+h1{
+  font-size:clamp(34px,5vw,54px);
+  line-height:1.15;margin:0 0 16px;letter-spacing:1px;
+  font-weight:900;color:var(--ink);
+}
+h1 .hl{
+  background:linear-gradient(180deg,transparent 62%,rgba(255,183,3,.55) 62%);
+  padding:0 4px;
+}
+.hero-lead{
+  font-size:16.5px;color:var(--ink-soft);margin:0 0 24px;max-width:34em;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border-radius:12px;font-weight:700;font-size:15px;
+  border:1px solid transparent;cursor:pointer;transition:transform .16s,box-shadow .16s,background .16s;
+}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 10px 24px rgba(47,58,143,.28);}
+.btn-primary:hover{transform:translateY(-2px);background:#26307a;}
+.btn-ghost{background:#fff;color:var(--brand);border-color:#d6daf0;}
+.btn-ghost:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+.btn[data-download-placeholder]{pointer-events:none;opacity:.62;cursor:default;}
+.hero-stats{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap;}
+.hero-stats div{font-size:13px;color:var(--muted);}
+.hero-stats strong{display:block;font-size:22px;color:var(--brand);font-weight:800;line-height:1.3;}
+
+/* Hero art */
+.hero-art{
+  position:relative;border-radius:22px;overflow:hidden;
+  background:linear-gradient(155deg,#1c2450,#39408c 55%,#5a63c9);
+  box-shadow:0 24px 50px rgba(28,36,80,.3);
+  padding:22px;
+}
+.hero-art .screen{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+  border-radius:14px;padding:16px;
+}
+.hero-art .screen-top{display:flex;gap:6px;margin-bottom:14px;}
+.hero-art .screen-top i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35);}
+.hero-art .screen-top i:nth-child(1){background:#ff8fab;}
+.hero-art .screen-top i:nth-child(2){background:#ffb703;}
+.hero-art .screen-top i:nth-child(3){background:#2bb3a3;}
+.thumb-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.thumb{
+  aspect-ratio:3/4;border-radius:10px;
+  background:linear-gradient(160deg,rgba(255,255,255,.26),rgba(255,255,255,.05));
+  border:1px solid rgba(255,255,255,.18);
+  display:flex;align-items:flex-end;padding:8px;
+  font-size:11px;color:rgba(255,255,255,.85);font-weight:600;
+}
+.thumb.t2{background:linear-gradient(160deg,rgba(255,183,3,.5),rgba(255,143,171,.15));}
+.thumb.t3{background:linear-gradient(160deg,rgba(43,179,163,.5),rgba(90,99,201,.15));}
+.hero-art .caption{margin-top:14px;color:rgba(255,255,255,.72);font-size:12.5px;letter-spacing:.5px;}
+
+/* Sections */
+section.block{padding:52px 0;}
+.section-head{margin-bottom:26px;max-width:44em;}
+.section-head h2{
+  font-size:clamp(22px,3vw,30px);margin:0 0 10px;font-weight:800;letter-spacing:.5px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.section-head h2::before{
+  content:"";width:6px;height:26px;border-radius:4px;
+  background:linear-gradient(180deg,var(--accent),var(--accent-2));
+}
+.section-head p{margin:0;color:var(--muted);font-size:15px;}
+
+/* Cards grid */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;box-shadow:0 2px 6px rgba(22,26,46,.03);
+  transition:transform .18s,box-shadow .18s,border-color .18s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#d3d8ee;}
+.card .icon{
+  width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+  margin-bottom:14px;background:#eef0fb;
+}
+.card .icon svg{width:22px;height:22px;}
+.card h3{margin:0 0 8px;font-size:17.5px;font-weight:800;letter-spacing:.3px;}
+.card p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.8;}
+.card .meta{margin-top:14px;font-size:12.5px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;}
+.tag{
+  display:inline-block;font-size:12px;font-weight:700;color:var(--brand);
+  background:#eaecf9;border-radius:999px;padding:2px 10px;
+}
+.tag.warm{background:#fff2d6;color:#9a6600;}
+.tag.teal{background:#e0f6f2;color:#177f72;}
+
+/* Anime list */
+.anime-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.anime-item{
+  display:flex;gap:16px;background:var(--card);border:1px solid var(--line);
+  border-radius:14px;padding:16px;transition:border-color .18s,box-shadow .18s;
+}
+.anime-item:hover{border-color:#cdd3ef;box-shadow:var(--shadow);}
+.anime-poster{
+  width:74px;flex:0 0 74px;aspect-ratio:3/4;border-radius:10px;
+  background:linear-gradient(160deg,#39408c,#5a63c9);
+  display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700;
+  letter-spacing:1px;
+}
+.anime-poster.p2{background:linear-gradient(160deg,#c98a12,#ffb703);color:#3a2a00;}
+.anime-poster.p3{background:linear-gradient(160deg,#177f72,#2bb3a3);}
+.anime-poster.p4{background:linear-gradient(160deg,#a03c62,#ff8fab);}
+.anime-item h3{margin:0 0 6px;font-size:16px;font-weight:800;}
+.anime-item p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.7;}
+.anime-item .row{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;}
+
+/* Filter */
+.filter-bar{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:14px 16px;margin-bottom:22px;
+}
+.filter-bar input[type="search"]{
+  flex:1 1 220px;min-width:0;font:inherit;font-size:14.5px;
+  padding:10px 14px;border-radius:10px;border:1px solid var(--line);
+  background:#fafbff;color:var(--ink);outline:none;transition:border-color .18s,box-shadow .18s;
+}
+.filter-bar input[type="search"]:focus{border-color:var(--brand-2);box-shadow:0 0 0 3px rgba(90,99,201,.15);}
+.chip-group{display:flex;gap:8px;flex-wrap:wrap;}
+.chip{
+  font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
+  padding:8px 15px;border-radius:999px;border:1px solid var(--line);
+  background:#fafbff;color:var(--ink-soft);transition:all .16s;
+}
+.chip:hover{border-color:var(--brand-2);color:var(--brand);}
+.chip.active{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 6px 14px rgba(47,58,143,.22);}
+.empty-hint{
+  display:none;color:var(--muted);font-size:14px;
+  padding:18px;text-align:center;background:var(--card);
+  border:1px dashed var(--line);border-radius:14px;
+}
+.empty-hint.show{display:block;}
+
+/* Steps */
+.steps{counter-reset:step;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.step{
+  position:relative;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:24px 22px 22px;
+}
+.step::before{
+  counter-increment:step;content:counter(step);
+  position:absolute;top:-14px;left:22px;
+  width:34px;height:34px;border-radius:10px;
+  background:linear-gradient(140deg,var(--accent),var(--accent-2));
+  color:#1d1400;font-weight:900;font-size:16px;
+  display:grid;place-items:center;box-shadow:0 6px 14px rgba(255,143,171,.3);
+}
+.step h3{margin:8px 0 8px;font-size:16.5px;font-weight:800;}
+.step p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+
+/* FAQ */
+.faq{display:grid;gap:12px;}
+details.faq-item{
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:0 18px;transition:border-color .18s;
+}
+details.faq-item[open]{border-color:#cdd3ef;}
+details.faq-item summary{
+  cursor:pointer;list-style:none;padding:16px 0;font-weight:700;font-size:15.5px;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+details.faq-item summary::-webkit-details-marker{display:none;}
+details.faq-item summary::after{
+  content:"+";font-size:20px;color:var(--brand-2);font-weight:400;line-height:1;flex:0 0 auto;
+}
+details.faq-item[open] summary::after{content:"–";}
+details.faq-item p{margin:0 0 18px;font-size:14.5px;color:var(--ink-soft);line-height:1.85;}
+
+/* Note band */
+.note-band{
+  background:linear-gradient(135deg,#1c2450,#39408c 60%,#5a63c9);
+  border-radius:20px;padding:36px 32px;color:#fff;
+  display:grid;grid-template-columns:1.4fr .6fr;gap:28px;align-items:center;
+  box-shadow:0 20px 44px rgba(28,36,80,.25);
+}
+.note-band h2{margin:0 0 10px;font-size:23px;font-weight:800;letter-spacing:.5px;}
+.note-band p{margin:0;color:rgba(255,255,255,.8);font-size:14.8px;max-width:34em;}
+.note-band .btn-primary{background:#ffb703;color:#241a00;box-shadow:0 10px 24px rgba(255,183,3,.28);justify-content:center;}
+.note-band .btn-primary:hover{background:#ffc93c;}
+
+/* Footer */
+footer.site-footer{
+  margin-top:20px;background:#11162b;color:rgba(255,255,255,.72);
+  padding:40px 0 28px;font-size:14px;
+}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;margin-bottom:26px;}
+footer .f-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:#fff;margin-bottom:10px;}
+footer .f-logo .mark{
+  width:32px;height:32px;border-radius:9px;background:linear-gradient(140deg,#5a63c9,#ffb703);
+  display:grid;place-items:center;
+}
+footer .f-logo .mark svg{width:18px;height:18px;}
+footer p{margin:0 0 8px;line-height:1.8;}
+footer h4{color:#fff;font-size:14.5px;margin:0 0 12px;font-weight:700;letter-spacing:.5px;}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;}
+footer ul a{color:rgba(255,255,255,.7);font-size:13.8px;}
+footer ul a:hover{color:#ffb703;}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.12);padding-top:18px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  font-size:12.8px;color:rgba(255,255,255,.5);
+}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:32px;}
+  .hero-art{max-width:460px;}
+  .grid-3,.steps{grid-template-columns:1fr 1fr;}
+  .note-band{grid-template-columns:1fr;text-align:left;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  body{font-size:15.5px;}
+  .hero{padding:34px 0 30px;}
+  .grid-3,.grid-2,.steps,.anime-list{grid-template-columns:1fr;}
+  .header-inner{padding:10px 0;}
+  nav.main-nav a{padding:6px 10px;font-size:13.5px;}
+  section.block{padding:38px 0;}
+  .card{padding:20px;}
+  .footer-grid{grid-template-columns:1fr;gap:22px;}
+  .hero-stats{gap:18px;}
+  .note-band{padding:26px 22px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="咕咕番 首页">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="8.5" cy="9" r="2.6" fill="#ffd166"/>
+          <path d="M15 6.5a5 5 0 0 1 0 10" stroke="#8ff0e6" stroke-width="2" stroke-linecap="round"/>
+          <path d="M5 19h14" stroke="#ff8fab" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </span>
+      咕咕番
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#new">新番速览</a>
+      <a href="#catalog">番剧目录</a>
+      <a href="#howto">追番方式</a>
+      <a href="#faq">常见问题</a>
+      <a class="nav-cta" href="#catalog">开始找番</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow"><span class="dot"></span>动漫番剧浏览入口</p>
+        <h1><span class="hl">咕咕番</span></h1>
+        <p class="hero-lead">咕咕番把新番速览、连载动态和分类检索收在一处，为喜欢动画的你提供清晰的番剧浏览入口。想快速判断一部作品是否合口味，可以先从下方的档期卡片和目录筛选开始。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#catalog">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="2"/><path d="M16.5 16.5 21 21" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+            进入番剧目录
+          </a>
+          <a class="btn btn-ghost" href="#new">看看本季新番</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>4</strong>档期分类</div>
+          <div><strong>3</strong>步完成追番</div>
+          <div><strong>1</strong>个入口集中浏览</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="screen">
+          <div class="screen-top"><i></i><i></i><i></i></div>
+          <div class="thumb-row">
+            <div class="thumb">新番</div>
+            <div class="thumb t2">连载</div>
+            <div class="thumb t3">完结</div>
+          </div>
+          <div class="caption">咕咕番 · 番剧入口示意</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="new">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>本季新番速览</h2>
+        <p>按档期归类整理，先看题材标签，再决定是否加入追番清单。以下条目用于说明咕咕番的浏览结构。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="#2f3a8f" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 9.5 15 12l-5 2.5z" fill="#2f3a8f"/></svg>
+          </div>
+          <h3>热血冒险档</h3>
+          <p>以成长与战斗为主线，适合喜欢连续剧情推进的观众。咕咕番在条目里标注连载状态，方便你判断是否需要从头补起。</p>
+          <div class="meta"><span class="tag">连载中</span><span class="tag warm">长篇</span></div>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#177f72" stroke-width="1.8"/><path d="M12 8v4l3 2" stroke="#177f72" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3>日常治愈档</h3>
+          <p>节奏舒缓、单集独立性强，适合通勤或睡前观看。目录中会给出集数区间，减少挑选时的犹豫。</p>
+          <div class="meta"><span class="tag teal">短篇</span><span class="tag">已完结</span></div>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5 14.6 9l6 .9-4.3 4.2 1 6-5.3-2.8L6.7 20l1-6L3.4 9.9 9.4 9z" stroke="#c98a12" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>剧场与特别篇</h3>
+          <p>单片时长较长，适合周末集中观看。列表会单独标记，避免和常规周更剧集混在一起。</p>
+          <div class="meta"><span class="tag warm">单片</span><span class="tag">特别篇</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="catalog">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>番剧目录与筛选</h2>
+        <p>输入片名关键词，或按状态快速过滤。筛选在当前页面内即时生效，结果直接显示在下方列表中。</p>
+      </div>
+
+      <div class="filter-bar">
+        <input type="search" id="animeSearch" placeholder="搜索片名，例如：星海、旅人" aria-label="搜索番剧名称">
+        <div class="chip-group" role="group" aria-label="按状态筛选">
+          <button class="chip active" type="button" data-filter="all">全部</button>
+          <button class="chip" type="button" data-filter="连载中">连载中</button>
+          <button class="chip" type="button" data-filter="已完结">已完结</button>
+          <button class="chip" type="button" data-filter="剧场版">剧场版</button>
+        </div>
+      </div>
+
+      <div class="anime-list" id="animeList">
+        <article class="anime-item" data-status="连载中" data-name="星海旅人">
+          <div class="anime-poster" aria-hidden="true">星海</div>
+          <div>
+            <h3>星海旅人</h3>
+            <p>少年驾驶旧式飞船穿越星带，寻找失联的故乡坐标。适合偏爱科幻与旅途叙事的观众。</p>
+            <div class="row"><span class="tag">连载中</span><span class="tag warm">科幻</span></div>
+          </div>
+        </article>
+        <article class="anime-item" data-status="已完结" data-name="午后甜品店">
+          <div class="anime-poster p2" aria-hidden="true">甜品</div>
+          <div>
+            <h3>午后甜品店</h3>
+            <p>小镇甜品店的四季日常，每集围绕一款点心展开。篇幅短，适合零散时间观看。</p>
+            <div class="row"><span class="tag teal">已完结</span><span class="tag">治愈</span></div>
+          </div>
+        </article>
+        <article class="anime-item" data-status="连载中" data-name="风起剑鸣">
+          <div class="anime-poster p3" aria-hidden="true">剑鸣</div>
+          <div>
+            <h3>风起剑鸣</h3>
+            <p>门派纷争下的成长线，武戏节奏紧凑。建议从第一集顺序观看，便于理解人物关系。</p>
+            <div class="row"><span class="tag">连载中</span><span class="tag warm">热血</span></div>
+          </div>
+        </article>
+        <article class="anime-item" data-status="剧场版" data-name="雾中回声">
+          <div class="anime-poster p4" aria-hidden="true">回声</div>
+          <div>
+            <h3>雾中回声</h3>
+            <p>单片时长约两小时，以悬疑氛围见长，适合一次性看完。列表标注为剧场版，不与周更剧集混排。</p>
+            <div class="row"><span class="tag warm">剧场版</span><span class="tag">悬疑</span></div>
+          </div>
+        </article>
+      </div>
+      <p class="empty-hint" id="emptyHint">没有匹配的条目，试着换个关键词或切换筛选条件。</p>
+    </div>
+  </section>
+
+  <section class="block" id="howto">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>三步完成追番</h2>
+        <p>从进入入口到形成自己的观看清单，咕咕番把流程压缩成三个动作，减少来回跳转。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>先定档期</h3>
+          <p>打开新番速览，按连载、完结或剧场版区分。档期决定了你能否跟上讨论节奏，也影响补番顺序。</p>
+        </div>
+        <div class="step">
+          <h3>再用目录筛</h3>
+          <p>在目录中按片名搜索或点选状态标签，结果即时更新。标签组合能快速缩小范围，避免逐条翻找。</p>
+        </div>
+        <div class="step">
+          <h3>最后记清单</h3>
+          <p>把感兴趣的条目写进个人追番清单，标注集数与进度。定期回看清单，比凭记忆找番更省时间。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="note-band">
+        <div>
+          <h2>把咕咕番当作固定入口</h2>
+          <p>番剧信息更新频繁，与其在多处来回切换，不如把浏览、筛选与清单放在同一个入口里。咕咕番的目录结构保持稳定，新条目按状态归位，方便你每次回来都能快速定位。</p>
+        </div>
+        <a class="btn btn-primary" href="#catalog">回到目录</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>常见问题</h2>
+        <p>关于咕咕番的使用方式与内容范围，集中回答几个高频疑问。</p>
+      </div>
+      <div class="faq">
+        <details class="faq-item" open>
+          <summary>咕咕番主要提供什么内容？</summary>
+          <p>咕咕番是一个面向动画观众的番剧浏览入口，核心内容包括新番速览、番剧目录、状态筛选与追番流程说明。页面本身不承载播放能力，重点在于帮助你在挑选阶段更快做出判断。</p>
+        </details>
+        <details class="faq-item">
+          <summary>目录里的筛选是怎么工作的？</summary>
+          <p>搜索框按片名关键词匹配，状态标签按连载中、已完结、剧场版分类。两者可以组合使用，结果在当前页面即时呈现，无需刷新。若没有匹配项，页面会给出提示，方便你调整条件。</p>
+        </details>
+        <details class="faq-item">
+          <summary>追番清单需要注册吗？</summary>
+          <p>页面提供的是流程建议，清单可由你自行记录在便签或笔记工具中。咕咕番不要求登录即可浏览目录与筛选内容，适合先浏览、后整理的使用习惯。</p>
+        </details>
+        <details class="faq-item">
+          <summary>为什么有些条目标注为剧场版？</summary>
+          <p>剧场版与周更剧集在观看节奏上差别较大，单独标注能避免混排。挑选时可以先看时长与题材标签，再决定是否安排整块时间观看。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="8.5" cy="9" r="2.6" fill="#1c2450"/>
+              <path d="M15 6.5a5 5 0 0 1 0 10" stroke="#1c2450" stroke-width="2" stroke-linecap="round"/>
+              <path d="M5 19h14" stroke="#1c2450" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          咕咕番
+        </div>
+        <p>咕咕番是番剧浏览入口，聚焦新番速览、目录筛选与追番流程，帮助观众用更短的时间找到合适的动画。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <ul>
+          <li><a href="#new">本季新番速览</a></li>
+          <li><a href="#catalog">番剧目录与筛选</a></li>
+          <li><a href="#howto">三步完成追番</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用提示</h4>
+        <ul>
+          <li><a href="#catalog">按片名搜索番剧</a></li>
+          <li><a href="#catalog">按状态过滤条目</a></li>
+          <li><a href="#howto">整理个人追番清单</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>咕咕番 · 番剧浏览入口</span>
+      <span>页面信息以浏览与筛选为主，具体内容以实际条目为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input = document.getElementById('animeSearch');
+  var list = document.getElementById('animeList');
+  var hint = document.getElementById('emptyHint');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var items = Array.prototype.slice.call(list.querySelectorAll('.anime-item'));
+  var activeFilter = 'all';
+
+  function apply(){
+    var q = (input.value || '').trim().toLowerCase();
+    var visible = 0;
+    items.forEach(function(item){
+      var status = item.getAttribute('data-status');
+      var name = (item.getAttribute('data-name') || '').toLowerCase();
+      var text = item.textContent.toLowerCase();
+      var matchFilter = activeFilter === 'all' || status === activeFilter;
+      var matchQuery = !q || name.indexOf(q) !== -1 || text.indexOf(q) !== -1;
+      var show = matchFilter && matchQuery;
+      item.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    hint.classList.toggle('show', visible === 0);
+  }
+
+  input.addEventListener('input', apply);
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      activeFilter = chip.getAttribute('data-filter');
+      apply();
+    });
+  });
+
+  apply();
+})();
+</script>
+
+</body>
+                </html>
